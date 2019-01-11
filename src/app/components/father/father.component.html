@@ -1,3 +1,7 @@
 <p>
-  father works!
+	父亲！
+	<button type="button" (click)="checkdata()">点我检查子传过来的值！</button>
 </p>
+
+<br><br><br><br><br>
+<app-child [msgg]="msg" [method]="method" (toparent)="method($event)"></app-child>
