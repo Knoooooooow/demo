@@ -13,7 +13,12 @@ export class ChildComponent implements OnInit {
 	constructor() { }
 
 	ngOnInit() {
-		this.toparentFun();
+		//取消初始化数据
+		// this.toparentFun();
+		this.getMockData();
+	}
+	getMockData(){
+		
 	}
 	toparentFun(){
 		this.toparent.emit(this.childmsg);
