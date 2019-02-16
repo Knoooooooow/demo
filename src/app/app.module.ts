@@ -16,6 +16,17 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { ProductComponent } from './product/product.component';
 import { StarsComponent } from './stars/stars.component';
 import { FormComponent } from './components/form/form.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { HomeComponent } from './home/home.component';
+import { Routes, RouterModule } from '@angular/router';
+
+
+
+//首页路由配置
+const routeConfig:Routes = [
+  {path:'',component : HomeComponent},
+  {path:'product/:prodTitle',component : ProductDetailComponent}
+]
 
 @NgModule({
   declarations: [
@@ -29,14 +40,16 @@ import { FormComponent } from './components/form/form.component';
     CarouselComponent,
     ProductComponent,
     StarsComponent,
-    FormComponent
+    FormComponent,
+    ProductDetailComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     ReactiveFormsModule,
-    FormsModule
-
+    FormsModule,
+    RouterModule.forRoot(routeConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]
