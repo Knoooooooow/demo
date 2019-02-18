@@ -1,3 +1,4 @@
+import { ProductService } from './shared/product.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
@@ -25,7 +26,7 @@ import { Routes, RouterModule } from '@angular/router';
 //首页路由配置
 const routeConfig:Routes = [
   {path:'',component : HomeComponent},
-  {path:'product/:prodTitle',component : ProductDetailComponent}
+  {path:'product/:productId',component : ProductDetailComponent}
 ]
 
 @NgModule({
@@ -51,7 +52,9 @@ const routeConfig:Routes = [
     FormsModule,
     RouterModule.forRoot(routeConfig)
   ],
-  providers: [],
+  providers: [
+    ProductService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
