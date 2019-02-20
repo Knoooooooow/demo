@@ -1,5 +1,7 @@
+import { FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl} from '@angular/forms';
+import 'rxjs/RX';
+
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -7,14 +9,23 @@ import { FormGroup, FormBuilder, Validators, FormControl} from '@angular/forms';
 })
 export class FormComponent implements OnInit {
 
-  constructor(private fb:FormBuilder,) { }
-  public formval: any;
-  username:any='';
-  ngOnInit(): void {
-    this.formval = this.fb.group({
-      name: ['', Validators.required]
-      //,Validators.pattern('[0-9]')
-    });
-  }
 
+  name:FormControl = new FormControl();
+
+  constructor() {
+    this.name.valueChanges.debounceTime(500).subscribe(
+      data=>{
+        this.doSomething(data);
+      },
+      err=>{
+
+      }
+    );
+  }
+  ngOnInit(): void {
+    
+  }
+  doSomething(val:any){
+    console.log(val);
+  }
 }

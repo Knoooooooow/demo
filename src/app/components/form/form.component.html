@@ -1,4 +1,3 @@
-<form [formGroup]="formval" style="display: flex" novalidate>
-  <input type="text" formControlName="name" [(ngModel)]="username">
-  <div *ngIf="formval.controls['name'].touched && !formval.controls['name'].valid">111</div>
+<form novalidate>
+  <input type="text" class="form-group" [formControl]="name">
 </form>
