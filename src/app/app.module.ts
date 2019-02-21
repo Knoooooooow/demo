@@ -20,6 +20,7 @@ import { FormComponent } from './components/form/form.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { HomeComponent } from './home/home.component';
 import { Routes, RouterModule } from '@angular/router';
+import { FilterPipe } from './pipe/filter.pipe';
 
 
 
@@ -43,7 +44,8 @@ const routeConfig:Routes = [
     StarsComponent,
     FormComponent,
     ProductDetailComponent,
-    HomeComponent
+    HomeComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
