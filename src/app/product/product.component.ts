@@ -1,7 +1,8 @@
 import { FormControl } from '@angular/forms';
 import { ProductService, Product } from './../shared/product.service';
 import { Component, OnInit } from '@angular/core';
-import 'rxjs/Rx';
+// import 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
