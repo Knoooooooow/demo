@@ -1,5 +1,5 @@
 import { FormControl } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import 'rxjs/RX';
 
 @Component({
@@ -9,6 +9,12 @@ import 'rxjs/RX';
 })
 export class FormComponent implements OnInit {
 
+  stockCode:string="IBM";
+
+  price:number;
+  
+  @Output()
+  lastPrice:EventEmitter<PriceQuote> = new EventEmitter();
 
   name:FormControl = new FormControl();
 
@@ -21,11 +27,24 @@ export class FormComponent implements OnInit {
 
       }
     );
+    setInterval(()=>{
+      let priceQuote:PriceQuote = new PriceQuote(this.stockCode,100*Math.random());
+      this.price=priceQuote.lastPrice;
+      this.lastPrice.emit(priceQuote);
+    },1000)
   }
   ngOnInit(): void {
     
   }
   doSomething(val:any){
     console.log(val);
+  }
+}
+export class PriceQuote {
+  constructor(
+    public stockCode:string,
+    public lastPrice:number
+  ){
+
   }
 }
