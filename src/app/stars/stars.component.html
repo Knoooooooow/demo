@@ -1,7 +1,8 @@
 <p>
   <span class="glyphicon glyphicon-star"
-  [class.glyphicon-star-empty]="star" *ngFor="let star of stars">
+  [class.glyphicon-star-empty]="star" *ngFor="let star of stars;let i=index;" (click)="clickStar(i)">
     
   </span>
-  {{rating}}
+  <!--管道：一位整数，最多2位小数-->
+  {{rating | number:'1.0-2'}}
 </p>

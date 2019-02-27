@@ -10,6 +10,11 @@ export class ProductDetailComponent implements OnInit {
 
   product:Product;
   comments:Comment[];
+  //评论的输入数据
+  newRating:number = 5;
+  newComment:string = "";
+
+  isCommentHidden:boolean = false;
   constructor(
     private routeInfo:ActivatedRoute,
     public productService:ProductService
@@ -21,4 +26,17 @@ export class ProductDetailComponent implements OnInit {
     this.comments = this.productService.getCommentsForProductId(productId);
   }
 
+
+  addComment(){
+    let comment = new Comment(0, this.product.id, new Date(), "someone", this.newRating, this.newComment);
+    this.comments.unshift(comment);
+
+    let sumVal = this.comments.reduce((sumVal, comment)=> sumVal + comment.rating, 0);
+    this.product.rating = sumVal / this.comments.length;
+
+    //初始化
+    this.newComment = '';
+    this.newRating = 5;
+    this.isCommentHidden = false;
+  }
 }
