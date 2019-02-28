@@ -11,8 +11,4 @@
     </div>
 </div>
 <app-footer></app-footer>
-<app-form (lastPrice)="priceQuoteHandle($event)"></app-form>
-<div>
-    最外部的组建：股票代码是{{priceQuote.stockCode}}
-    最外部的组建：股票价格是{{priceQuote.lastPrice | number:'2.2-2'}}
-</div>
+<app-form></app-form>
