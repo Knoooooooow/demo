@@ -21,6 +21,10 @@ export class ProductService {
 
   constructor() { }
 
+  getAllCategories(): string[]{
+    return ["电子产品","硬件设备","图书"]
+  }
+
   //返回数据的方法
   getProducts(): Product[]{
     return this.products;
